@@ -3,7 +3,6 @@ package com.example.pokedexproject.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.pokedexproject.models.Pokemon
 import com.example.pokedexproject.util.Constants
 
 @Entity(tableName = Constants.TABLE_NAME)
@@ -40,20 +39,4 @@ data class PokemonEntity constructor(
     data class Stat(
         val name: String,
         val baseStat: Int)
-}
-
-fun List<PokemonEntity>.asDomainModel(): List<Pokemon> {
-    return map {
-        Pokemon(
-            name = it.name,
-            apiId = it.apiId,
-            image = it.image,
-            type = it.type,
-            height = it.height,
-            weight = it.weight,
-            abilities = it.abilities,
-            moves = it.moves,
-            stats = it.stats.map { stat -> Pokemon.Stat(stat.name, stat.baseStat) }
-        )
-    }
 }
