@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -33,13 +34,16 @@ android {
     viewBinding {
         enabled = true
     }
+    buildFeatures {
+        dataBinding true
+    }
 }
 
 dependencies {
 
     def version_moshi = "1.9.0"
     def version_retrofit = "2.9.0"
-    def version_room = "2.4.3"
+    def version_room = "2.3.0"
     def version_nav = "2.5.3"
     def version_timber = "4.7.1"
     def version_work = "2.7.1"
@@ -64,6 +68,7 @@ dependencies {
     // Room
     implementation "androidx.room:room-common:$version_room"
     implementation "androidx.room:room-ktx:$version_room"
+    kapt "androidx.room:room-compiler:$version_room"
 
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$version_nav"
