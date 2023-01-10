@@ -37,6 +37,7 @@ dependencies {
     def version_moshi = "1.9.0"
     def version_retrofit = "2.9.0"
     def version_room = "2.4.3"
+    def version_nav = "2.5.3"
 
     // Core dependencies
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -55,6 +56,10 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$version_retrofit"
 
+    // Room
     implementation "androidx.room:room-common:$version_room"
     implementation "androidx.room:room-ktx:$version_room"
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$version_nav"
 }
