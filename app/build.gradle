@@ -39,6 +39,7 @@ dependencies {
     def version_room = "2.4.3"
     def version_nav = "2.5.3"
     def version_timber = "4.7.1"
+    def version_work = "2.7.1"
 
     // Core dependencies
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -66,4 +67,8 @@ dependencies {
 
     // Timber
     implementation "com.jakewharton.timber:timber:$version_timber"
+
+    // Work
+    implementation "androidx.work:work-runtime-ktx:$version_work" +
+            ""
 }
