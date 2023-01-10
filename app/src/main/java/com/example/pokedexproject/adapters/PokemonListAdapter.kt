@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokedexproject.databinding.RowItemBinding
 import com.example.pokedexproject.models.Pokemon
+import com.example.pokedexproject.network.LoadImage
 import timber.log.Timber
 
 private const val TAG = "PokemonListAdapter"
@@ -23,11 +24,12 @@ class PokemonListAdapter : ListAdapter<Pokemon, PokemonListAdapter.ViewHolder>(P
             // Setup the views inside the RecyclerView row
             binding.rowItemCardTitle.text = pokemon.name.capitalize()
             binding.rowItemCardType.text = "Type: ${pokemon.type.capitalize()}"
-            binding.rowItemCardView.setOnClickListener {
-                // TODO: add navigation to the details page
-            }
+//            binding.rowItemCardView.setOnClickListener {
+//                // TODO: add navigation to the details page
+//            }
 
-            // TODO: Setup Image for card view
+            // setup image
+            pokemon.image.let { LoadImage.loadImage(itemView.context, binding.rowItemCardImage, it) }
         }
 
         companion object {
