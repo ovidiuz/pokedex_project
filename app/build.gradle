@@ -47,6 +47,8 @@ dependencies {
     def version_nav = "2.5.3"
     def version_timber = "4.7.1"
     def version_work = "2.7.1"
+    def version_glide = "4.12.0"
+
 
     // Core dependencies
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -78,4 +80,7 @@ dependencies {
 
     // Work
     implementation "androidx.work:work-runtime-ktx:$version_work"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$version_glide"
 }
