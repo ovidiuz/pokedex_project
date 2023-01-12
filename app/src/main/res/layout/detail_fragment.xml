@@ -122,6 +122,24 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/stats_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/default_padding" >
+
+                <TextView
+                    android:id="@+id/stats_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/small_margin"
+                    android:text="@string/pokemon_statistics"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/medium_text_size"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/abilities_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -153,24 +171,6 @@
                     android:textSize="@dimen/medium_text_size"
                     android:textStyle="bold"
                     android:text="@string/pokemon_moves" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/stats_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/default_padding" >
-
-                <TextView
-                    android:id="@+id/stats_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/small_margin"
-                    android:text="@string/pokemon_statistics"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/medium_text_size"
-                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
