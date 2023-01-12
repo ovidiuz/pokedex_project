@@ -122,5 +122,5 @@ Pokemon Repository object.
 # ScreenShots
 ScreenShot                                                              | ScreenShot                                                              | ScreenShot
 :----------------------------------------------------------------------:|:-----------------------------------------------------------------------:|:------------------------------------------------------------------------:
-![screenshot1](pictures/Screenshot_20230111_213815_PokeDex Project.jpg) | ![screenshot2](pictures/Screenshot_20230111_213830_PokeDex Project.jpg) | ![screenshot3](pictures/Screenshot_20230111_213840_PokeDex Project.jpg)
-![screenshot4](pictures/Screenshot_20230111_213913_PokeDex Project.jpg) | ![screenshot5](pictures/Screenshot_20230111_214013_PokeDex Project.jpg) | ![screenshot6](pictures/Screenshot_20230111_214024_PokeDex Project.jpg)
+![screenshot1](pictures/Screenshot_20230111_213815_PokeDex%20Project.jpg) | ![screenshot2](pictures/Screenshot_20230111_213830_PokeDex%20Project.jpg) | ![screenshot3](pictures/Screenshot_20230111_213840_PokeDex%20Project.jpg)
+![screenshot4](pictures/Screenshot_20230111_213913_PokeDex%20Project.jpg) | ![screenshot5](pictures/Screenshot_20230111_214013_PokeDex%20Project.jpg) | ![screenshot6](pictures/Screenshot_20230111_214024_PokeDex%20Project.jpg)
