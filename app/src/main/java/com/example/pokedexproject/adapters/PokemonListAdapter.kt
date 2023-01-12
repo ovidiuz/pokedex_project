@@ -1,5 +1,6 @@
 package com.example.pokedexproject.adapters
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -9,9 +10,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pokedexproject.R
 import com.example.pokedexproject.databinding.RowItemBinding
 import com.example.pokedexproject.models.Pokemon
 import com.example.pokedexproject.network.LoadImage
+import com.example.pokedexproject.util.Constants
 import timber.log.Timber
 
 private const val TAG = "PokemonListAdapter"
@@ -24,9 +27,11 @@ class PokemonListAdapter : ListAdapter<Pokemon, PokemonListAdapter.ViewHolder>(P
             // Setup the views inside the RecyclerView row
             binding.rowItemCardTitle.text = pokemon.name.capitalize()
             binding.rowItemCardType.text = "Type: ${pokemon.type.capitalize()}"
-//            binding.rowItemCardView.setOnClickListener {
-//                // TODO: add navigation to the details page
-//            }
+            binding.rowItemCardView.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putParcelable(Constants.BUNDLE_PROPERTY, pokemon)
+                navController.navigate(R.id.action_list_to_detail, bundle)
+            }
 
             // setup image
             pokemon.image.let { LoadImage.loadImage(itemView.context, binding.rowItemCardImage, it) }
