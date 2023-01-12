@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setTheme(androidx.appcompat.R.style.Theme_AppCompat)
         setContentView(R.layout.activity_main)
 
         Timber.d("$TAG: onCreate")
