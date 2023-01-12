@@ -2,4 +2,9 @@
     <string name="app_name">PokeDex Project</string>
     <string name="pokemon_name">Pokemon Name</string>
     <string name="pokemon_type">Type</string>
+    <string name="pokemon_abilities">Abilities</string>
+    <string name="pokemon_moves">Moves</string>
+    <string name="pokemon_statistics">Statistics</string>
+    <string name="pokemon_height">Height</string>
+    <string name="pokemon_weight">Weight</string>
 </resources>
