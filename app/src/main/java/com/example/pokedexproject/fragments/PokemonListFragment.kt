@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -33,6 +34,9 @@ class PokemonListFragment : Fragment(R.layout.list_fragment) {
         viewModel.pokemonList.observe(viewLifecycleOwner, Observer {
             it?.let { viewModelAdapter?.submitList(it) }
         })
+        viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
+            if (isNetworkError) onNetworkError()
+        })
     }
 
     override fun onCreateView(
@@ -48,5 +52,12 @@ class PokemonListFragment : Fragment(R.layout.list_fragment) {
         viewModelAdapter = PokemonListAdapter()
         binding.listFragmentRecyclerview.adapter = viewModelAdapter
         return binding.root
+    }
+
+    private fun onNetworkError() {
+        if(!viewModel.isNetworkErrorShown.value!!) {
+            Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
+            viewModel.onNetworkErrorShown()
+        }
     }
 }

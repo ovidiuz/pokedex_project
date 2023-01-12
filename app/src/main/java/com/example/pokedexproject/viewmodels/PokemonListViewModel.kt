@@ -1,8 +1,6 @@
 package com.example.pokedexproject.viewmodels
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.pokedexproject.repository.PokemonRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,6 +12,14 @@ private const val TAG = "PokemonListviewModel"
 class PokemonListViewModel constructor(private val repository: PokemonRepository) : ViewModel() {
     val pokemonList = repository.pokemons
 
+    private var _eventNetworkError = MutableLiveData<Boolean>(false)
+    val eventNetworkError: LiveData<Boolean>
+        get() = _eventNetworkError
+
+    private var _isNetworkErrorShown = MutableLiveData<Boolean>(false)
+    val isNetworkErrorShown: LiveData<Boolean>
+        get() = _isNetworkErrorShown
+
     init {
         refreshDataFromRepository()
     }
@@ -23,10 +29,18 @@ class PokemonListViewModel constructor(private val repository: PokemonRepository
             Timber.d("$TAG: calling refreshDataFromRepository")
             try {
                 repository.refreshPokemons()
+                _eventNetworkError.postValue(false)
+                _isNetworkErrorShown.postValue(false)
             } catch (networkError: IOException) {
                 Timber.e("$TAG: caught IOException error = $networkError")
+                if(pokemonList.value.isNullOrEmpty())
+                    _eventNetworkError.postValue(true)
             }
         }
+    }
+
+    fun onNetworkErrorShown() {
+        _isNetworkErrorShown.postValue(true)
     }
 
     class Factory(private val repository: PokemonRepository) : ViewModelProvider.Factory {
